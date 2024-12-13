@@ -55,49 +55,54 @@ public class caseStudy2 {
     public static void tampilkanDaftarPesanan() {
         String previousCustomerName = null;
         System.out.println("\n===== DAFTAR PESANAN =====");
-        int[] totalPerCust = new int[orderCount];
         
-    
         if (orderCount != 0) {
+            int totalPrice = 0;
+    
             for (int a = 0; a < orderCount; a++) {
                 String currentCustomerName = orders[a][0];
-                int totalPrice = 0;
-    
+
                 if (!currentCustomerName.equalsIgnoreCase(previousCustomerName)) {
+
+                    if (previousCustomerName != null) {
+                        System.out.println("Total order price : Rp. " + totalPrice);
+                        System.out.println("------------------------------");
+                    }
+    
                     previousCustomerName = currentCustomerName;
-                    System.out.println("\nCustomer name: " + currentCustomerName);
+                    totalPrice = 0;  
+    
+                    System.out.println("Customer name: " + currentCustomerName);
                     System.out.println("Table Number: " + orders[a][1]);
                     System.out.println("Order Details:");
                 }
-
+    
                 for (int b = 2; b < orders[a].length; b++) {
                     switch (b) {
-                        case 2:
+                        case 2: 
                             System.out.print("- " + orders[a][b]);
                             break;
-
-                        case 3:
+                        case 3: 
                             System.out.print(" x " + orders[a][b]);
                             break;
-
-                        case 4:
+                        case 4: 
                             int price = Integer.parseInt(orders[a][b]);
                             System.out.println(" = Rp. " + price);
-                            totalPrice += price;
+                            totalPrice += price;  
                             break;
-                    
                         default:
                             break;
                     }
                 }
-                System.out.println("Total order price : Rp. " + totalPrice);
             }
+    
+            System.out.println("Total order price : Rp. " + totalPrice);
             System.out.println("------------------------------");
         } else {
             System.out.println("No customer order data");
         }
     }
-
+    
     public static void tampilkanMenu() {
         System.out.println("\n=== MAIN MENU ===");
         System.out.println("1. Add Orders");
