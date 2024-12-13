@@ -1,10 +1,12 @@
 import java.util.Scanner;;
 public class caseStudy2 {
+
     static Scanner sc = new Scanner(System.in);
     static final String[] MENU_NAMES = {"Black Coffe", "Latte", "Tensile Tea", "Fried Noodle"};
     static final int[] MENU_PRICES = {15000, 22000, 12000, 18000};
     static String[][] orders = new String[100][5];
     static int orderCount = 0;
+
     public static void tambahPesanan(){
         System.out.print("Enter Customer Name: ");
         String customerName = sc.nextLine();
@@ -51,23 +53,50 @@ public class caseStudy2 {
     }
 
     public static void tampilkanDaftarPesanan() {
-        if (orderCount == 0) {
-            System.out.println("Tidak ada pesanan.");
-            return;
-        }
+        String previousCustomerName = null;
+        System.out.println("\n===== DAFTAR PESANAN =====");
+        int[] totalPerCust = new int[orderCount];
+        
+    
+        if (orderCount != 0) {
+            for (int a = 0; a < orderCount; a++) {
+                String currentCustomerName = orders[a][0];
+                int totalPrice = 0;
+    
+                if (!currentCustomerName.equalsIgnoreCase(previousCustomerName)) {
+                    previousCustomerName = currentCustomerName;
+                    System.out.println("\nCustomer name: " + currentCustomerName);
+                    System.out.println("Table Number: " + orders[a][1]);
+                    System.out.println("Order Details:");
+                }
 
-        System.out.println("===== DAFTAR PESANAN =====");
-        String currentCustomer = "";
-        for (int i = 0; i < orderCount; i++) {
-            if (!orders[i][0].equals(currentCustomer)) {
-                currentCustomer = orders[i][0];
-                System.out.printf("Nama Pelanggan: %s, Nomor Meja: %s\n", orders[i][0], orders[i][1]);
+                for (int b = 2; b < orders[a].length; b++) {
+                    switch (b) {
+                        case 2:
+                            System.out.print("- " + orders[a][b]);
+                            break;
+
+                        case 3:
+                            System.out.print(" x " + orders[a][b]);
+                            break;
+
+                        case 4:
+                            int price = Integer.parseInt(orders[a][b]);
+                            System.out.println(" = Rp. " + price);
+                            totalPrice += price;
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                }
+                System.out.println("Total order price : Rp. " + totalPrice);
             }
-            System.out.printf("    Menu: %s, Jumlah: %s, Total Harga: Rp %s\n",
-                    orders[i][2], orders[i][3], orders[i][4]);
+            System.out.println("------------------------------");
+        } else {
+            System.out.println("No customer order data");
         }
     }
-  
     public static void tampilkanMenu() {
         System.out.println("\n=== MAIN MENU ===");
         System.out.println("1. Add Orders");
@@ -82,7 +111,7 @@ public class caseStudy2 {
             tambahPesanan();
                 break;
             case 2:
-                tampilkanDaftarPesanan();
+            tampilkanDaftarPesanan();
                 break;
             case 3:
                 System.out.println("Exitting program, Thank You!");
