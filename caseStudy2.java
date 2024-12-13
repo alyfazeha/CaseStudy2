@@ -1,6 +1,5 @@
 import java.util.Scanner;
 public class caseStudy2 {
-
     static Scanner sc = new Scanner(System.in);
     public static void tampilkanMenu() {
         System.out.println("\n=== MAIN MENU ===");
@@ -11,7 +10,7 @@ public class caseStudy2 {
         int pilihan = sc.nextInt();
         sc.nextLine();
 
-        switch (pilihan) {
+            switch (pilihan) {
             case 1:
             // tambahPesanan();
                 break;
