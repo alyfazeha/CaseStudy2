@@ -1,37 +1,37 @@
 import java.util.Scanner;;
 public class caseStudy2 {
     static Scanner sc = new Scanner(System.in);
-    static final String[] MENU_NAMES = {"Kopi Hitam", "Latte", "Teh Tarik", "Mie Goreng"};
+    static final String[] MENU_NAMES = {"Black Coffe", "Latte", "Tensile Tea", "Fried Noodle"};
     static final int[] MENU_PRICES = {15000, 22000, 12000, 18000};
     static String[][] orders = new String[100][5];
     static int orderCount = 0;
     public static void tambahPesanan(){
-        System.out.print("Masukkan nama pelanggan: ");
+        System.out.print("Enter Customer Name: ");
         String customerName = sc.nextLine();
 
-        System.out.print("Masukkan nomor meja: ");
+        System.out.print("Enter Table's Number: ");
         String tableNumber = sc.nextLine();
 
         int totalOrderPrice = 0;
         while (true) {
-            System.out.println("===== MENU KAFE =====");
+            System.out.println("===== CAFE MENU =====");
             for (int i = 0; i < MENU_NAMES.length; i++) {
                 System.out.printf("%d. %s - Rp %d\n", (i + 1), MENU_NAMES[i], MENU_PRICES[i]);
             }
-            System.out.print("Pilih menu (masukkan nomor menu, atau 0 untuk selesai): ");
+            System.out.print("Choose the menu (Enter menu's number, or 0 to finish): ");
             int menuChoice = sc.nextInt();
 
             if (menuChoice == 0) break;
 
             if (menuChoice < 1 || menuChoice > MENU_NAMES.length) {
-                System.out.println("Pilihan menu tidak valid.");
+                System.out.println("Menu is invalid.");
                 continue;
             }
 
-            System.out.printf("Masukkan jumlah item untuk %s: ", MENU_NAMES[menuChoice - 1]);
+            System.out.printf("Enter the number of items for %s: ", MENU_NAMES[menuChoice - 1]);
             int quantity = sc.nextInt();
             if (quantity <= 0) {
-                System.out.println("Jumlah item harus lebih dari 0.");
+                System.out.println("The number of item must more than 0.");
                 continue;
             }
 
@@ -46,8 +46,8 @@ public class caseStudy2 {
             orderCount++;
         }
 
-        System.out.println("Pesanan berhasil ditambahkan.");
-        System.out.printf("Total harga pesanan: Rp %d\n", totalOrderPrice);
+        System.out.println("Order is Succesfully added.");
+        System.out.printf("Total order price: Rp %d\n", totalOrderPrice);
     }
   
     public static void tampilkanMenu() {
@@ -75,9 +75,9 @@ public class caseStudy2 {
         }
     }
     public static void main(String[] args) {
-
-     while (true) {
-        tampilkanMenu();
+        while (true) {
+            tampilkanMenu();
+        }
     }
 }
 
