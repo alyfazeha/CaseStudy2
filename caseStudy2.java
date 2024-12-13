@@ -49,6 +49,24 @@ public class caseStudy2 {
         System.out.println("Order is Succesfully added.");
         System.out.printf("Total order price: Rp %d\n", totalOrderPrice);
     }
+
+    public static void tampilkanDaftarPesanan() {
+        if (orderCount == 0) {
+            System.out.println("Tidak ada pesanan.");
+            return;
+        }
+
+        System.out.println("===== DAFTAR PESANAN =====");
+        String currentCustomer = "";
+        for (int i = 0; i < orderCount; i++) {
+            if (!orders[i][0].equals(currentCustomer)) {
+                currentCustomer = orders[i][0];
+                System.out.printf("Nama Pelanggan: %s, Nomor Meja: %s\n", orders[i][0], orders[i][1]);
+            }
+            System.out.printf("    Menu: %s, Jumlah: %s, Total Harga: Rp %s\n",
+                    orders[i][2], orders[i][3], orders[i][4]);
+        }
+    }
   
     public static void tampilkanMenu() {
         System.out.println("\n=== MAIN MENU ===");
@@ -64,7 +82,7 @@ public class caseStudy2 {
             tambahPesanan();
                 break;
             case 2:
-            // tampilkanDaftarPesanan();
+                tampilkanDaftarPesanan();
                 break;
             case 3:
                 System.out.println("Exitting program, Thank You!");
