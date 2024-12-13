@@ -13,7 +13,7 @@ public class caseStudy2 {
 
         System.out.print("Enter Table's Number: ");
         String tableNumber = sc.nextLine();
-
+        int validasiCancelOrder = orderCount;
         int totalOrderPrice = 0;
         while (true) {
             System.out.println("===== CAFE MENU =====");
@@ -47,9 +47,12 @@ public class caseStudy2 {
             orders[orderCount][4] = String.valueOf(itemPrice * quantity);
             orderCount++;
         }
-
-        System.out.println("Order is Succesfully added.");
-        System.out.printf("Total order price: Rp %d\n", totalOrderPrice);
+        if (validasiCancelOrder == orderCount) {
+            System.out.println("This Order is Canceled!");
+        } else {
+            System.out.println("Order is Succesfully added.");
+            System.out.printf("Total order price: Rp %d\n", totalOrderPrice);
+        }
     }
 
     public static void tampilkanDaftarPesanan() {
