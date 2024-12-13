@@ -61,7 +61,7 @@ public class caseStudy2 {
 
         switch (pilihan) {
             case 1:
-            // tambahPesanan();
+            tambahPesanan();
                 break;
             case 2:
             // tampilkanDaftarPesanan();
