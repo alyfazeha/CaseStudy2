@@ -75,12 +75,12 @@ public class caseStudy2 {
                     previousCustomerName = currentCustomerName;
                     totalPrice = 0;  
     
-                    System.out.println("\nCustomer name: " + currentCustomerName);
+                    System.out.println("\nCustomer Name: " + currentCustomerName);
                     System.out.println("Table Number: " + orders[a][1]);
                     System.out.println("Order Details:");
                 }
     
-                for (int b = 2; b < orders[a].length; b++) {
+                for (int b = 0; b < orders[a].length; b++) {
                     switch (b) {
                         case 2: 
                             System.out.print("- " + orders[a][b]);
