@@ -1,4 +1,4 @@
-import java.util.Scanner;;
+import java.util.Scanner;
 public class caseStudy2 {
     static Scanner sc = new Scanner(System.in);
     static final String[] MENU_NAMES = {"Black Coffe", "Latte", "Tensile Tea", "Fried Noodle"};
@@ -61,10 +61,10 @@ public class caseStudy2 {
 
             switch (pilihan) {
             case 1:
-            // tambahPesanan();
+            tambahPesanan();
                 break;
             case 2:
-            // tampilkanDaftarPesanan();
+            //tampilkanDaftarPesanan();
                 break;
             case 3:
                 System.out.println("Exitting program, Thank You!");
