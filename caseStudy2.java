@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Scanner;
 public class caseStudy2 {
 
     static Scanner sc = new Scanner(System.in);
@@ -113,12 +112,12 @@ public class caseStudy2 {
         int pilihan = sc.nextInt();
         sc.nextLine();
 
-            switch (pilihan) {
+        switch (pilihan) {
             case 1:
             tambahPesanan();
                 break;
             case 2:
-            //tampilkanDaftarPesanan();
+            tampilkanDaftarPesanan();
                 break;
             case 3:
                 System.out.println("Exitting program, Thank You!");
@@ -134,10 +133,3 @@ public class caseStudy2 {
         }
     }
 }
-
-
-
-
-
-
-       
